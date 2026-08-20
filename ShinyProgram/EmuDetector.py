@@ -16,6 +16,7 @@ def getUptime():
     return f"{minutes} minutes, {seconds:.1f} seconds."
 
 # Set the webhook URL and user ID to tag for Discord Integration
+# if not set, program will fail unless set to FALSE. Line 86
 webhook_url = ""
 user_id = ""
 
@@ -82,7 +83,7 @@ def isItShiny():
         print("The Pokemon is Shiny! Found After " + str(resetCounter) + " resets.")
         # Take screenshot, tag to Discord, and send specialized message.
         specialMessage = "The Pokemon is Shiny! Found After " + str(resetCounter) + " resets." + "\nUptime is: " + getUptime()
-        takeScreenshot(False, specialMessage) # Set to False to not send message to Discord, True to send message to Discord.
+        takeScreenshot(True, specialMessage) # Set to False to not send message to Discord, True to send message to Discord.
         shinyFound = True
 
     # Monitor what isItShiny() receives/outputs

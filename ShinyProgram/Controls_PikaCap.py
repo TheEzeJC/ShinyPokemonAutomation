@@ -78,9 +78,9 @@ def skipFluff():
     keyboard.press('a')
     time.sleep(.15)
     keyboard.release('a')
-    time.sleep(3)
+    time.sleep(2)
     # Select first Pokemon in list to open menu
-    print("B3")
+    # print("B3")
     keyboard.press('a')
     time.sleep(.15)
     keyboard.release('a')
@@ -101,7 +101,7 @@ def skipFluff():
 
     # Delay to collect correct color
     print("Waiting to collect color")
-    time.sleep(3)
+    time.sleep(2)
 
     return True
 
