@@ -4,8 +4,9 @@ import cv2
 import datetime
 import time
 import requests
-#import TypeNullControls
-import EmuCommands.PoipoleControls as PoipoleControls
+#import Controls_Poipole
+#import Controls_Type_Null
+import Controls_PikaCap
 
 # Keeps track of how long program has been running
 startTime = time.time()
@@ -14,13 +15,13 @@ def getUptime():
     minutes, seconds = divmod(uptime_seconds, 60)
     return f"{minutes} minutes, {seconds:.1f} seconds."
 
-# Set the webhook URL and user ID to tag
+# Set the webhook URL and user ID to tag for Discord Integration
 webhook_url = ""
 user_id = ""
 
 # Initialize camera
 # If there are camera errors debug in CollectColor
-cameraPort = 2  # The index of the camera
+cameraPort = 3  # The index of the camera
 cap = cv2.VideoCapture(cameraPort, cv2.CAP_DSHOW)
 wCam = 1920  # Width of camera resolution
 hCam = 1080  # Height of camera resolution
@@ -47,14 +48,14 @@ folder_path = "./Screenshots/"
 currentDateTimeString = datetime.datetime.today().strftime('%m-%d-%Y_%I-%M-%p_')
 
 # Define region of interest
-x, y, w, h = 785, 450, 10, 10
+x, y, w, h = 750, 953, 25, 25
 
 # Color gathered from CollectColor
 pokemonColor = (77.6, 254.4, 132.6, 0.0)
 
 # Define color tolerance
 # Recommended to have low tolerance (will increase chance of false positives)
-tolerance = 3
+tolerance = 2
 
 # Reset Counter
 resetCounter = 0
@@ -81,7 +82,7 @@ def isItShiny():
         print("The Pokemon is Shiny! Found After " + str(resetCounter) + " resets.")
         # Take screenshot, tag to Discord, and send specialized message.
         specialMessage = "The Pokemon is Shiny! Found After " + str(resetCounter) + " resets." + "\nUptime is: " + getUptime()
-        takeScreenshot(True, specialMessage)
+        takeScreenshot(False, specialMessage) # Set to False to not send message to Discord, True to send message to Discord.
         shinyFound = True
 
     # Monitor what isItShiny() receives/outputs
@@ -134,17 +135,19 @@ def takeScreenshot(sendMessage, message_str):
 stop_program = False
 
 # Skip Text Loop
+# Change to corresponding Controls file based on the Pokemon being hunted.
 def skip_fluff():
     # Continuously Until Found
     while not stop_program:
-        if PoipoleControls.skipFluff():
+        if Controls_PikaCap.skipFluff():
             print("Checking if Shiny")
             if isItShiny():
                 break
             else:
-                PoipoleControls.reset()
+                Controls_PikaCap.reset()
 
 # Main
+# Start in the main menu of the game. Setup character beforehand.
 print("Starting Program")
 # Start the skip_fluff thread
 skip_fluff_thread = threading.Thread(target=skip_fluff)

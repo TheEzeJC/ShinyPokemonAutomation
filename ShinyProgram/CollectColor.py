@@ -62,6 +62,7 @@ def calculateColorTolerance():
     print(round(max_tolerance, 1)) # Rounds to first decimal
 
 # Main
+# The longer the program runs the more accurate the average color and tolerance will be. Do not run for too long.
 timesExecuted = 0.0;
 
 # Tolerance variables

@@ -3,14 +3,14 @@ import keyboard
 import time
 
 # Get handle to the Citra emulator window
-citra_window = win32gui.FindWindow(None, "Citra Nightly 1888 | Pokémon Ultra Moon")
+emu_window = win32gui.FindWindow(None, "Azahar 2126.0 | Pokémon Ultra Sun")
 
 # Set Citra emulator window as the foreground window
-win32gui.SetForegroundWindow(citra_window)
+win32gui.SetForegroundWindow(emu_window)
 
 # Wait for the window to become the foreground window
 while True:
-    if win32gui.GetForegroundWindow() == citra_window:
+    if win32gui.GetForegroundWindow() == emu_window:
         break
 
 # Skips over text
@@ -28,75 +28,81 @@ def skipFluff():
     keyboard.press('a')
     time.sleep(.15)
     keyboard.release('a')
-    time.sleep(3)
-
-    # Move Character Left
-    keyboard.press('right')
-    time.sleep(1.5)
-    keyboard.release('right')
-    time.sleep(1)
+    time.sleep(4.5)
 
     # Message 1
+    # print("M1")
+    keyboard.press('a')
+    time.sleep(.15)
+    keyboard.release('a')
+    time.sleep(1.5)
+    # Message 2
+    #print("M2")
+    keyboard.press('a')
+    time.sleep(.15)
+    keyboard.release('a')
+    time.sleep(1)
+    # Accept Gift
+    # print("M3")
+    keyboard.press('a')
+    time.sleep(.15)
+    keyboard.release('a')
+    time.sleep(5)
+    # Finsish Accept Gift
+    # print("M4")
+    keyboard.press('a')
+    time.sleep(.15)
+    keyboard.release('a')
+    time.sleep(2)
+    # Message 5
+    # print("M5")
+    keyboard.press('a')
+    time.sleep(.15)
+    keyboard.release('a')
+    time.sleep(3.5)
+
+    print("Finished Dialog")
+
+
+    # Open the viewable menu to check if the Pokemon is shiny or not.
+    # Open menu
+    print("Opening Menu")
+    #print("B1")
+    keyboard.press('z')
+    time.sleep(.15)
+    keyboard.release('z')
+    time.sleep(1)
+    # Select Pokemon Menu
+    # Assumes first in list
+    # print("B2")
     keyboard.press('a')
     time.sleep(.15)
     keyboard.release('a')
     time.sleep(3)
-    # Message 2
+    # Select first Pokemon in list to open menu
+    print("B3")
     keyboard.press('a')
     time.sleep(.15)
     keyboard.release('a')
     time.sleep(1)
-    # Message 3
+    # open Summary menu/load 3D model of Pokemon
+    # print("B4")
     keyboard.press('a')
     time.sleep(.15)
     keyboard.release('a')
+    time.sleep(3)
+    # Scroll to latest pokemon in the list by going up
+    # print("B5")
+    keyboard.press('up')
+    time.sleep(.15)
+    keyboard.release('up')
     time.sleep(1)
-    # Message 4
-    keyboard.press('a')
-    time.sleep(.15)
-    keyboard.release('a')
-    time.sleep(1)
-    # Message 5
-    keyboard.press('a')
-    time.sleep(.15)
-    keyboard.release('a')
-    time.sleep(1)
-    # Message 6
-    keyboard.press('a')
-    time.sleep(.15)
-    keyboard.release('a')
-    time.sleep(1)
-    # Message 7
-    keyboard.press('a')
-    time.sleep(.15)
-    keyboard.release('a')
-    time.sleep(7)
-    # Message 8
-    keyboard.press('a')
-    time.sleep(.15)
-    keyboard.release('a')
-    time.sleep(1.25)
-    # Message 9
-    keyboard.press('a')
-    time.sleep(.15)
-    keyboard.release('a')
-    time.sleep(1)
-    # Message 10
-    keyboard.press('a')
-    time.sleep(.15)
-    keyboard.release('a')
-    time.sleep(1)
-    # Message 11
-    keyboard.press('a')
-    time.sleep(.15)
-    keyboard.release('a')
-    time.sleep(6.5)
-    # Message 12
-    keyboard.press('a')
-    time.sleep(.15)
-    keyboard.release('a')
-    time.sleep(3)  # Delay to collect correct color
-    print("Finished Dialog")
+    print("Finished Opening Menu")
+
+    # Delay to collect correct color
+    print("Waiting to collect color")
+    time.sleep(3)
+
     return True
 
 def reset():

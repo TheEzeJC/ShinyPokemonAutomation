@@ -30,43 +30,76 @@ def skipFluff():
     keyboard.release('a')
     time.sleep(3)
 
+    # Move Character Left
+    keyboard.press('right')
+    time.sleep(1.5)
+    keyboard.release('right')
+    time.sleep(1)
+
     # Message 1
-    # print("M1")
     keyboard.press('a')
     time.sleep(.15)
     keyboard.release('a')
-    time.sleep(1.5)
+    time.sleep(3)
     # Message 2
-    # print("M2")
     keyboard.press('a')
     time.sleep(.15)
     keyboard.release('a')
     time.sleep(1)
     # Message 3
-    # print("M3")
     keyboard.press('a')
     time.sleep(.15)
     keyboard.release('a')
     time.sleep(1)
     # Message 4
-    # print("M4")
     keyboard.press('a')
     time.sleep(.15)
     keyboard.release('a')
     time.sleep(1)
     # Message 5
-    # print("M5")
+    keyboard.press('a')
+    time.sleep(.15)
+    keyboard.release('a')
+    time.sleep(1)
+    # Message 6
+    keyboard.press('a')
+    time.sleep(.15)
+    keyboard.release('a')
+    time.sleep(1)
+    # Message 7
+    keyboard.press('a')
+    time.sleep(.15)
+    keyboard.release('a')
+    time.sleep(7)
+    # Message 8
+    keyboard.press('a')
+    time.sleep(.15)
+    keyboard.release('a')
+    time.sleep(1.25)
+    # Message 9
+    keyboard.press('a')
+    time.sleep(.15)
+    keyboard.release('a')
+    time.sleep(1)
+    # Message 10
+    keyboard.press('a')
+    time.sleep(.15)
+    keyboard.release('a')
+    time.sleep(1)
+    # Message 11
     keyboard.press('a')
     time.sleep(.15)
     keyboard.release('a')
     time.sleep(6.5)
-    # Message 6
-    # print("M6")
+    # Message 12
     keyboard.press('a')
     time.sleep(.15)
     keyboard.release('a')
-    time.sleep(3)  # Delay to collect correct color
     print("Finished Dialog")
+    
+    print("Waiting to collect color")
+    time.sleep(3)  # Delay to collect correct color
+    
     return True
 
 def reset():
