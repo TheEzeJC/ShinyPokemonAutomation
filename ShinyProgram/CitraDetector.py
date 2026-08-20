@@ -20,7 +20,7 @@ user_id = ""
 
 # Initialize camera
 # If there are camera errors debug in CollectColor
-cameraPort = 2  # The index of the camera
+cameraPort = 3  # The index of the camera. Same as CollectColor.py
 cap = cv2.VideoCapture(cameraPort, cv2.CAP_DSHOW)
 wCam = 1920  # Width of camera resolution
 hCam = 1080  # Height of camera resolution
