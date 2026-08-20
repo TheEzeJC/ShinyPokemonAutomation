@@ -10,10 +10,10 @@ def getUptime():
     return f"{minutes} minutes, {seconds:.1f} seconds."
 
 # Initialize camera
-cameraPort = 2  # The index of the camera
+cameraPort = 3  # The index of the camera used to capture the emulator screen. Change this if you have multiple cameras.
 cap = cv2.VideoCapture(cameraPort, cv2.CAP_DSHOW)
 wCam = 1920  # Width of camera resolution
-hCam = 1080  # Height of camera resolution
+hCam = 1080  # Height of camera resolution.
 cap.set(cv2.CAP_PROP_FRAME_WIDTH, wCam)
 cap.set(cv2.CAP_PROP_FRAME_HEIGHT, hCam)
 
@@ -36,7 +36,7 @@ folder_path = "./Screenshots/"
 currentDateTimeString = datetime.datetime.today().strftime('%m-%d-%Y_%H-%M_')
 
 # Define region of interest
-x, y, w, h = 785, 450, 10, 10
+x, y, w, h = 750, 953, 25, 25
 
 # calculate the average color in the region
 def calculateColorAverage():

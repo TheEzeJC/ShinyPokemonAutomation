@@ -3,14 +3,14 @@ import keyboard
 import time
 
 # Get handle to the Citra emulator window
-citra_window = win32gui.FindWindow(None, "Citra Nightly 1894 | Pokémon Ultra Moon")
+emu_window = win32gui.FindWindow(None, "Azahar 2126.0 | Pokémon Ultra Sun")
 
 # Set Citra emulator window as the foreground window
-win32gui.SetForegroundWindow(citra_window)
+win32gui.SetForegroundWindow(emu_window)
 
 # Wait for the window to become the foreground window
 while True:
-    if win32gui.GetForegroundWindow() == citra_window:
+    if win32gui.GetForegroundWindow() == emu_window:
         break
 
 # Skips over text
