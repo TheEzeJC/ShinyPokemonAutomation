@@ -5,7 +5,7 @@ import datetime
 import time
 import requests
 #import TypeNullControls
-import PoipoleControls
+import EmuCommands.PoipoleControls as PoipoleControls
 
 # Keeps track of how long program has been running
 startTime = time.time()
